@@ -2,14 +2,24 @@ import React, { PropTypes, Component } from 'react';
 import styles from './Canvas.css';
 
 import {
+  handleStartDrawing,
+  handleStopDrawing,
   handleDraw
 } from './canvasEventHandlers';
 
 class Canvas extends Component {
   // hook canvas event handlers to redux actions
   componentDidMount() {
-    const { draw } = this.props;
-    handleDraw(draw);
+    const {
+      isDrawing,
+      startDrawing,
+      stopDrawing,
+      draw
+    } = this.props;
+
+    handleStartDrawing(startDrawing);
+    handleStopDrawing(stopDrawing);
+    handleDraw(isDrawing, draw);
   }
 
   // prevent React from attempting to re-render the canvas with state changes
@@ -31,6 +41,8 @@ class Canvas extends Component {
 
 Canvas.propTypes = {
   isDrawing: PropTypes.bool.isRequired,
+  startDrawing: PropTypes.func.isRequired,
+  stopDrawing: PropTypes.func.isRequired,
   draw: PropTypes.func.isRequired
 };
 
