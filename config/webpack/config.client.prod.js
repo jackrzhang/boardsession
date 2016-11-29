@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 const webpack = require('webpack');
-const { CLIENT_BUILD_DIR, CLIENT_SRC_DIR } = require('./constants');
+const { SRC_DIR, CLIENT_BUILD_DIR, CLIENT_SRC_DIR } = require('./constants');
 
 const configProd = {
   name: 'production',
@@ -16,7 +16,7 @@ const configProd = {
     loaders: [
       {
         test: /.js$|.jsx$/,
-        include: CLIENT_SRC_DIR,
+        include: SRC_DIR,
         loaders: ['react-hot', 'babel']
       },
       {

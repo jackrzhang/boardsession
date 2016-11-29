@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 const webpack = require('webpack');
-const { CLIENT_SRC_DIR } = require('./constants');
+const { SRC_DIR, CLIENT_SRC_DIR } = require('./constants');
 const { HOT_HOST, HOT_PORT } = process.env;
 
 const configDev = {
@@ -22,7 +22,7 @@ const configDev = {
     loaders: [
       {
         test: /.js$|.jsx$/,
-        include: CLIENT_SRC_DIR,
+        include: SRC_DIR,
         loaders: ['react-hot', 'babel']
       },
       {

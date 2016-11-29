@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './state/rootReducer';
+import rootReducer from './../state/rootReducer';
 
 import { persistState } from 'redux-devtools';
 import DevTools from './DevTools';
@@ -31,8 +31,8 @@ const configureStore = (initialState) => {
   );
 
   if (module.hot) {
-    module.hot.accept('./state/rootReducer', () => {
-      const nextRootReducer = require('./state/rootReducer').default; // eslint-disable-line
+    module.hot.accept('./../state/rootReducer', () => {
+      const nextRootReducer = require('./../state/rootReducer').default; // eslint-disable-line
       store.replaceReducer(nextRootReducer);
     });
   }

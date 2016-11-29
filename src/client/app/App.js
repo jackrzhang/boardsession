@@ -7,9 +7,10 @@ class App extends Component {
   render() {
     return (
       <div className={styles.app}>
-        <h1 className={styles.title}>React + Redux + Immutable.js</h1>
+        <h1 className={styles.title}>BoardSession</h1>
         <h2 className={styles.subtitle}>
-          A starter kit for <b>modern</b>, <b>performant</b>, and <b>scalable</b> JS.
+          Some catchy punchline with <b>nice</b>, <b>eloquent</b>
+          , and <b>descriptive</b> adjectives.
         </h2>
       </div>
     );
