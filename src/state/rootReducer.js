@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux-immutable';
-import boardReudcer from './boardReducer';
+import boardReducer from './boardReducer';
 
 const rootReducer = combineReducers({
   board: boardReducer
