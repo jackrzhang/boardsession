@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
-import { drawCircle } from './canvasActions';
+import { draw } from './canvasActions';
 
 import Canvas from './Canvas.view';
 
+const mapStateToProps = state => ({
+  isDrawing: state
+});
+
 const mapDispatchToProps = dispatch => ({
-  drawCircle: (x, y) => {
-    dispatch(drawCircle(x, y));
+  draw: (x, y) => {
+    dispatch(draw(x, y));
   }
 });
 
 export default connect(
-  () => ({}),
+  mapStateToProps,
   mapDispatchToProps
 )(Canvas);

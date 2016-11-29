@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux-immutable';
-
-const defaultReducer = () => 'Default Initial State';
+import boardReudcer from './boardReducer';
 
 const rootReducer = combineReducers({
-  default: defaultReducer
+  board: boardReducer
 });
 
 export default rootReducer;

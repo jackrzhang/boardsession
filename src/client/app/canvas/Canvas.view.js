@@ -8,8 +8,8 @@ import {
 class Canvas extends Component {
   // hook canvas event handlers to redux actions
   componentDidMount() {
-    const { drawCircle } = this.props;
-    handleDraw(drawCircle);
+    const { draw } = this.props;
+    handleDraw(draw);
   }
 
   // prevent React from attempting to re-render the canvas with state changes
@@ -30,7 +30,8 @@ class Canvas extends Component {
 }
 
 Canvas.propTypes = {
-  drawCircle: PropTypes.func.isRequired
+  isDrawing: PropTypes.bool.isRequired,
+  draw: PropTypes.func.isRequired
 };
 
 export default Canvas;

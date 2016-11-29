@@ -1,8 +1,7 @@
 export const handleDraw = (drawAction) => {
-  const ctx = document.getElementById('canvas');
-  console.log(ctx);
+  const canvas = document.getElementById('canvas');
 
-  ctx.addEventListener('mousedown', (e) => {
+  canvas.addEventListener('onmousedown', (e) => {
     console.log(e);
-  });
+  }, false);
 };

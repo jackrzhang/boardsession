@@ -1,7 +1,7 @@
-export const DRAW_CIRCLE = 'DRAW_CIRCLE';
+export const DRAW = 'DRAW';
 
-export const drawCircle = (x, y) => ({
-  type: DRAW_CIRCLE,
+export const draw = (x, y) => ({
+  type: DRAW,
   x,
   y
 });
