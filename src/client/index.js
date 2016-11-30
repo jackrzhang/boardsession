@@ -29,3 +29,5 @@ ReactDOM.render(
   <Root />,
   document.getElementById('root')
 );
+
+export default store;

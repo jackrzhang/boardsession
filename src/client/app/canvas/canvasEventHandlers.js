@@ -1,13 +1,10 @@
-// utilize a locally scoped isDrawing boolean for adjusting
-// the isDrawing event handler
-let isDrawing = false;
+import store from './../../index';
 
 export const handleMouseDown = (startDrawing, draw) => {
   const canvas = document.getElementById('canvas');
 
   canvas.addEventListener('mousedown', (e) => {
     startDrawing();
-    isDrawing = true;
     draw(e.clientX, e.clientY);
   }, false);
 };
@@ -17,7 +14,6 @@ export const handleMouseUp = (stopDrawing) => {
 
   canvas.addEventListener('mouseup', () => {
     stopDrawing();
-    isDrawing = false;
   }, false);
 };
 
@@ -26,17 +22,16 @@ export const handleMouseLeave = (stopDrawing) => {
 
   canvas.addEventListener('mouseleave', () => {
     stopDrawing();
-    isDrawing = false;
   }, false);
 };
 
-
 export const handleMouseMove = (draw) => {
   const canvas = document.getElementById('canvas');
-
-  canvas.addEventListener('mousemove', (e) => {
-    if (isDrawing) {
+  const listener = (e) => {
+    if (store.getState().get('board').get('isDrawing')) {
       draw(e.clientX, e.clientY);
     }
-  }, false);
+  };
+
+  canvas.addEventListener('mousemove', listener, false);
 };

@@ -12,6 +12,7 @@ class Canvas extends Component {
   // hook canvas event handlers to redux actions
   componentDidMount() {
     const { startDrawing, stopDrawing, draw } = this.props;
+
     handleMouseDown(startDrawing, draw);
     handleMouseUp(stopDrawing);
     handleMouseLeave(stopDrawing);
