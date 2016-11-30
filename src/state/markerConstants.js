@@ -7,3 +7,4 @@ export const SIZE_5 = 5;
 
 // Colors
 export const BLACK = '#000000';
+export const WHITE = '#FFFFFF';

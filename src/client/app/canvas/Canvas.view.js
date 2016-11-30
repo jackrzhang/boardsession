@@ -16,7 +16,7 @@ class Canvas extends Component {
 
     handleMouseDown(canvas, startLine, addPoint);
     handleMouseUp(canvas, endLine, addPoint);
-    handleMouseLeave(canvas, endLine);
+    handleMouseLeave(canvas, endLine, addPoint);
     handleMouseMove(canvas, addPoint);
   }
 

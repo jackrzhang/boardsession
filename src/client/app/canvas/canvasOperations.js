@@ -17,7 +17,25 @@ const getPointData = (canvas, e) => {
 const redrawCanvas = (context) => {
   context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 
-  
+  store.getState().get('points').forEach((point, i, points) => {
+    context.beginPath();
+
+    // ensure that point is NOT the start of a line
+    const isStartOfLine = (i && points.get(i - 1).get('isEndOfLine'));
+    if (!isStartOfLine) {
+      context.moveTo(points.get(i - 1).get('x'), points.get(i - 1).get('y'));
+    } else {
+      context.moveTo(point.get('x') - 1, point.get('y'));
+    }
+    context.lineTo(point.get('x'), point.get('y'));
+
+    context.closePath();
+
+    context.lineWidth = point.get('size');
+    context.lineJoin = 'round';
+    context.strokeStyle = point.get('color');
+    context.stroke();
+  });
 };
 
 // Event Handlers
@@ -47,9 +65,16 @@ export const handleMouseUp = (canvas, endLine, addPoint) => {
   }, false);
 };
 
-export const handleMouseLeave = (canvas, endLine) => {
-  canvas.addEventListener('mouseleave', () => {
+export const handleMouseLeave = (canvas, endLine, addPoint) => {
+  const context = canvas.getContext('2d');
+
+  canvas.addEventListener('mouseleave', (e) => {
     endLine();
+
+    const pointData = getPointData(canvas, e);
+    addPoint(pointData);
+
+    redrawCanvas(context);
   }, false);
 };
 
