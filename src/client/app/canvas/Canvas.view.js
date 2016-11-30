@@ -6,17 +6,18 @@ import {
   handleMouseUp,
   handleMouseLeave,
   handleMouseMove
-} from './canvasEventHandlers';
+} from './canvasOperations';
 
 class Canvas extends Component {
   // hook canvas event handlers to redux actions
   componentDidMount() {
+    const canvas = document.getElementById('canvas');
     const { startDrawing, stopDrawing, draw } = this.props;
 
-    handleMouseDown(startDrawing, draw);
-    handleMouseUp(stopDrawing);
-    handleMouseLeave(stopDrawing);
-    handleMouseMove(draw);
+    handleMouseDown(canvas, startDrawing, draw);
+    handleMouseUp(canvas, stopDrawing);
+    handleMouseLeave(canvas, stopDrawing);
+    handleMouseMove(canvas, draw);
   }
 
   // prevent React from attempting to re-render the canvas with state changes
