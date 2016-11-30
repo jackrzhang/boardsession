@@ -1,12 +1,12 @@
 import { Map } from 'immutable';
 
 import {
-  THICKNESS_2,
+  SIZE_2,
   BLACK
 } from './markerConstants';
 
 export const initialMarker = Map({
-  radius: THICKNESS_2,
+  size: SIZE_2,
   color: BLACK
 });
 

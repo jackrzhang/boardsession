@@ -1,10 +1,29 @@
 import store from './../../index';
 
+const getMarkerState = () => {
+  const markerState = store.getState().get('marker');
+
+  return {
+    size: markerState.get('size'),
+    color: markerState.get('color')
+  };
+};
+
+const getDrawLocation = (canvas, e) => {
+  const rect = canvas.getBoundingClientRect();
+
+  return {
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top
+  };
+};
+
 // Drawing Functionality
 
-const drawCircle = (canvas, x, y) => {
+const drawOnCanvas = (canvas, marker, location) => {
   // const context = canvas.get2
 };
+
 
 // Event Handlers
 
@@ -30,9 +49,13 @@ export const handleMouseLeave = (canvas, stopDrawing) => {
 export const handleMouseMove = (canvas, draw) => {
   const listener = (e) => {
     const isDrawing = store.getState().get('board').get('isDrawing');
+
     if (isDrawing) {
-      draw(e.clientX, e.clientY);
-      drawCircle(canvas, e.clientX, e.clientY);
+      const marker = getMarkerState();
+      const location = getDrawLocation(canvas, e);
+
+      draw(marker, location);
+      drawOnCanvas(canvas, marker, location);
     }
   };
 

@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => ({
   stopDrawing: () => {
     dispatch(stopDrawing());
   },
-  draw: (x, y) => {
-    dispatch(draw(x, y));
+  draw: (marker, location) => {
+    dispatch(draw(marker, location));
   }
 });
 

@@ -12,8 +12,10 @@ export const stopDrawing = () => ({
 
 export const DRAW = 'DRAW';
 
-export const draw = (x, y) => ({
+export const draw = (marker, location) => ({
   type: DRAW,
-  x,
-  y
+  size: marker.size,
+  color: marker.color,
+  x: location.x,
+  y: location.y
 });
