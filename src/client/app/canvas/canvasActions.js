@@ -1,21 +1,22 @@
-export const START_DRAWING = 'START_DRAWING';
+export const START_LINE = 'START_LINE';
 
-export const startDrawing = () => ({
-  type: START_DRAWING
+export const startLine = () => ({
+  type: START_LINE
 });
 
-export const STOP_DRAWING = 'STOP_DRAWING';
+export const END_LINE = 'END_LINE';
 
-export const stopDrawing = () => ({
-  type: STOP_DRAWING
+export const endLine = () => ({
+  type: END_LINE
 });
 
-export const DRAW = 'DRAW';
+export const ADD_POINT = 'ADD_POINT';
 
-export const draw = (marker, location) => ({
-  type: DRAW,
-  size: marker.size,
-  color: marker.color,
-  x: location.x,
-  y: location.y
+export const addPoint = pointData => ({
+  type: ADD_POINT,
+  size: pointData.size,
+  color: pointData.color,
+  isEndOfLine: pointData.isEndOfLine,
+  x: pointData.x,
+  y: pointData.y
 });

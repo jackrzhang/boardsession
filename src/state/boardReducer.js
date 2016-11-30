@@ -1,8 +1,8 @@
 import { Map } from 'immutable';
 
 import {
-  START_DRAWING,
-  STOP_DRAWING
+  START_LINE,
+  END_LINE
 } from './../client/app/canvas/canvasActions';
 
 export const initialBoard = Map({
@@ -11,9 +11,9 @@ export const initialBoard = Map({
 
 const boardReducer = (state = initialBoard, action) => {
   switch (action.type) {
-    case START_DRAWING:
+    case START_LINE:
       return state.set('isDrawing', true);
-    case STOP_DRAWING:
+    case END_LINE:
       return state.set('isDrawing', false);
     default:
       return state;

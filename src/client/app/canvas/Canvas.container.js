@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import {
-  startDrawing,
-  stopDrawing,
-  draw
+  startLine,
+  endLine,
+  addPoint
 } from './canvasActions';
 
 import Canvas from './Canvas.view';
@@ -14,14 +14,14 @@ is implemented using a reference to the Redux store (from app/index.js)
 */
 
 const mapDispatchToProps = dispatch => ({
-  startDrawing: () => {
-    dispatch(startDrawing());
+  startLine: () => {
+    dispatch(startLine());
   },
-  stopDrawing: () => {
-    dispatch(stopDrawing());
+  endLine: () => {
+    dispatch(endLine());
   },
-  draw: (marker, location) => {
-    dispatch(draw(marker, location));
+  addPoint: (pointData) => {
+    dispatch(addPoint(pointData));
   }
 });
 
