@@ -8,7 +8,7 @@ import {
 import Canvas from './Canvas.view';
 
 const mapStateToProps = state => ({
-  isDrawing: state.get('isDrawing')
+  
 });
 
 const mapDispatchToProps = dispatch => ({
