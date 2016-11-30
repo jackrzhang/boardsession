@@ -6,4 +6,4 @@ export const SIZE_4 = 4;
 export const SIZE_5 = 5;
 
 // Colors
-export const BLACK = 'BLACK';
+export const BLACK = '#000000';

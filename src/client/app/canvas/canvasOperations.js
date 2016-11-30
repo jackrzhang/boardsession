@@ -19,18 +19,24 @@ const getDrawLocation = (canvas, e) => {
 };
 
 // Drawing Functionality
-
-const drawOnCanvas = (canvas, marker, location) => {
-  // const context = canvas.get2
+const redrawCanvas = (context, marker, location) => {
+  context.strokeStyle = marker.color;
+  context.lineJoin = 'round';
+  context.lineWidth = marker.size;
 };
 
-
 // Event Handlers
-
 export const handleMouseDown = (canvas, startDrawing, draw) => {
+  const context = canvas.getContext('2d');
+
   canvas.addEventListener('mousedown', (e) => {
     startDrawing();
-    draw(e.clientX, e.clientY);
+
+    const marker = getMarkerState();
+    const location = getDrawLocation(canvas, e);
+
+    draw(marker, location);
+    redrawCanvas(context, marker, location);
   }, false);
 };
 
@@ -47,6 +53,8 @@ export const handleMouseLeave = (canvas, stopDrawing) => {
 };
 
 export const handleMouseMove = (canvas, draw) => {
+  const context = canvas.getContext('2d');
+
   const listener = (e) => {
     const isDrawing = store.getState().get('board').get('isDrawing');
 
@@ -55,7 +63,7 @@ export const handleMouseMove = (canvas, draw) => {
       const location = getDrawLocation(canvas, e);
 
       draw(marker, location);
-      drawOnCanvas(canvas, marker, location);
+      redrawCanvas(context, marker, location);
     }
   };
 
