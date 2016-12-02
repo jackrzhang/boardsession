@@ -11,6 +11,12 @@ const { PORT, APP_NAME } = process.env;
 import express from 'express';
 const app = express();
 
+import http from 'http';
+const httpServer = http.Server(app);
+
+import socketIo from 'socket.io';
+const io = socketIo(httpServer);
+
 // Morgan Logging, Body Parser
 import initialize from './config/initialize';
 initialize(app);
@@ -23,12 +29,14 @@ configViewEngine(app, express);
 import configStaticAssets from './config/staticAssets';
 configStaticAssets(app, express);
 
+// Web Socket Communication
+import configWebSockets from './config/webSockets';
+configWebSockets(io);
+
 // View Routes
 import routeViews from './routes/viewRoutes';
 routeViews(app);
 
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`${APP_NAME} is listening on port ${PORT}.`);
 });
-
-export default app;
