@@ -31,8 +31,8 @@ const configureStore = (initialState) => {
   );
 
   if (module.hot) {
-    module.hot.accept('./../state/rootReducer', () => {
-      const nextRootReducer = require('./../state/rootReducer').default; // eslint-disable-line
+    module.hot.accept('./../state/rootReducer.client', () => {
+      const nextRootReducer = require('./../state/rootReducer.client').default; // eslint-disable-line
       store.replaceReducer(nextRootReducer);
     });
   }

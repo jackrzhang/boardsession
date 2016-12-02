@@ -1,7 +1,7 @@
 import path from 'path';
 import httpProxy from 'http-proxy';
 
-const configStaticAssets = (app, express) => {
+const configureStaticAssets = (app, express) => {
   if (process.env.NODE_ENV === 'development') {
     const { HOT_PORT, HOT_HOST } = process.env;
     const proxy = httpProxy.createProxyServer();
@@ -22,4 +22,4 @@ const configStaticAssets = (app, express) => {
   }
 };
 
-export default configStaticAssets;
+export default configureStaticAssets;

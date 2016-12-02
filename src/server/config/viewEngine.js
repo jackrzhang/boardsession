@@ -1,7 +1,7 @@
 import exphbs from 'express-handlebars';
 import path from 'path';
 
-const configViewEngine = (app) => {
+const configureViewEngine = (app) => {
   const hbs = exphbs.create({
     extname: '.hbs',
     defaultLayout: 'main',
@@ -13,4 +13,4 @@ const configViewEngine = (app) => {
   app.set('views', path.join(__dirname, './../views'));
 };
 
-export default configViewEngine;
+export default configureViewEngine;

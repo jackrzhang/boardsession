@@ -42,6 +42,9 @@ const configDev = {
       'process.env.NODE_ENV': JSON.stringify('development')
     })
   ],
+  resolve: {
+    extensions: ['.es6.js', '', '.js', '.es6']
+  },
   postcss: webpackArg => [
     require('postcss-import')({ addDependencyTo: webpackArg }),
     require('postcss-url'),

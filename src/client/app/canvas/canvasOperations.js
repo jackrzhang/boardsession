@@ -1,4 +1,4 @@
-import store from './../../index';
+import { store } from './../../index';
 
 const getPointData = (canvas, e) => {
   const markerState = store.getState().get('marker');

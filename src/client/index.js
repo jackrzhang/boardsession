@@ -1,33 +1,57 @@
-import React from 'react';
+/* eslint-disable react/no-multi-comp */
+
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App';
 import DevTools from './DevTools';
 
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
-const store = configureStore();
+export const store = configureStore();
 
-let Root;
-if (process.env.NODE_ENV === 'development') {
-  Root = () => (
-    <Provider store={store}>
-      <div>
-        <App />
-        <DevTools />
-      </div>
-    </Provider>
-  );
-} else {
-  Root = () => (
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+import configureSocket from './socket/configureSocket';
+import io from 'socket.io-client';
+export const socket = io.connect();
+
+class DevRoot extends Component {
+  componentDidMount() {
+    configureSocket(socket);
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <div>
+          <App />
+          <DevTools />
+        </div>
+      </Provider>
+    );
+  }
 }
 
-ReactDOM.render(
-  <Root />,
-  document.getElementById('root')
-);
+class ProdRoot extends Component {
+  componentDidMount() {
+    configureSocket(socket);
+  }
 
-export default store;
+  render() {
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  }
+}
+
+if (process.env.NODE_ENV === 'development') {
+  ReactDOM.render(
+    <DevRoot />,
+    document.getElementById('root')
+  );
+} else {
+  ReactDOM.render(
+    <ProdRoot />,
+    document.getElementById('root')
+  );
+}

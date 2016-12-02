@@ -25,6 +25,9 @@ const configProd = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.es6.js', '', '.js', '.es6']
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')

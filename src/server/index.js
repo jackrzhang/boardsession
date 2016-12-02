@@ -16,7 +16,7 @@ import express from 'express';
 const app = express();
 
 import http from 'http';
-const server = http.Server(app);
+const server = http.createServer(app);
 
 import socketIo from 'socket.io';
 const io = socketIo(server);
@@ -26,20 +26,20 @@ import initialize from './config/initialize';
 initialize(app);
 
 // Express-Handlebars
-import configViewEngine from './config/viewEngine';
-configViewEngine(app, express);
+import configureViewEngine from './config/viewEngine';
+configureViewEngine(app, express);
 
 // Webpack Dev Middleware + HMR / Express Static
-import configStaticAssets from './config/staticAssets';
-configStaticAssets(app, express);
+import configureStaticAssets from './config/staticAssets';
+configureStaticAssets(app, express);
 
 // View Routes
 import routeViews from './routes/viewRoutes';
 routeViews(app);
 
 // Web Socket Communication
-import configWebSockets from './sockets/configWebSockets';
-configWebSockets(io, store);
+import configureSocket from './socket/configureSocket';
+configureSocket(io, store);
 
 server.listen(PORT, () => {
   console.log(`${APP_NAME} is listening on port ${PORT}.`);
