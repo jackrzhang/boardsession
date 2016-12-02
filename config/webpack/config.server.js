@@ -26,7 +26,7 @@ const configServer = {
     path: SERVER_BUILD_DIR,
     filename: 'server.bundle.js'
   },
-  entry: `${SERVER_SRC_DIR}app.js`,
+  entry: `${SERVER_SRC_DIR}index.js`,
   module: {
     loaders: [
       {
