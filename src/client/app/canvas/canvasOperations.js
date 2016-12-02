@@ -39,47 +39,47 @@ const redrawCanvas = (context) => {
 };
 
 // Event Handlers
-export const handleMouseDown = (canvas, startLine, addPoint) => {
+export const handleMouseDown = (canvas, startLine, drawPoint) => {
   const context = canvas.getContext('2d');
 
   canvas.addEventListener('mousedown', (e) => {
     startLine();
-    addPoint(getPointData(canvas, e));
+    drawPoint(getPointData(canvas, e));
 
     redrawCanvas(context);
   }, false);
 };
 
-export const handleMouseUp = (canvas, endLine, addPoint) => {
+export const handleMouseUp = (canvas, endLine, drawPoint) => {
   const context = canvas.getContext('2d');
 
   canvas.addEventListener('mouseup', (e) => {
     endLine();
-    addPoint(getPointData(canvas, e));
+    drawPoint(getPointData(canvas, e));
 
     redrawCanvas(context);
   }, false);
 };
 
-export const handleMouseLeave = (canvas, endLine, addPoint) => {
+export const handleMouseLeave = (canvas, endLine, drawPoint) => {
   const context = canvas.getContext('2d');
 
   canvas.addEventListener('mouseleave', (e) => {
     endLine();
-    addPoint(getPointData(canvas, e));
+    drawPoint(getPointData(canvas, e));
 
     redrawCanvas(context);
   }, false);
 };
 
-export const handleMouseMove = (canvas, addPoint) => {
+export const handleMouseMove = (canvas, drawPoint) => {
   const context = canvas.getContext('2d');
 
   const listener = (e) => {
     const isDrawing = store.getState().get('board').get('isDrawing');
 
     if (isDrawing) {
-      addPoint(getPointData(canvas, e));
+      drawPoint(getPointData(canvas, e));
       redrawCanvas(context);
     }
   };

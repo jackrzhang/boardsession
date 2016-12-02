@@ -12,12 +12,12 @@ class Canvas extends Component {
   // hook canvas event handlers to redux actions
   componentDidMount() {
     const canvas = document.getElementById('canvas');
-    const { startLine, endLine, addPoint } = this.props;
+    const { startLine, endLine, drawPoint } = this.props;
 
-    handleMouseDown(canvas, startLine, addPoint);
-    handleMouseUp(canvas, endLine, addPoint);
-    handleMouseLeave(canvas, endLine, addPoint);
-    handleMouseMove(canvas, addPoint);
+    handleMouseDown(canvas, startLine, drawPoint);
+    handleMouseUp(canvas, endLine, drawPoint);
+    handleMouseLeave(canvas, endLine, drawPoint);
+    handleMouseMove(canvas, drawPoint);
   }
 
   // prevent React from attempting to re-render the canvas with state changes
@@ -40,7 +40,7 @@ class Canvas extends Component {
 Canvas.propTypes = {
   startLine: PropTypes.func.isRequired,
   endLine: PropTypes.func.isRequired,
-  addPoint: PropTypes.func.isRequired
+  drawPoint: PropTypes.func.isRequired
 };
 
 export default Canvas;

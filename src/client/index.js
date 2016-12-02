@@ -15,7 +15,7 @@ export const socket = io.connect();
 
 class DevRoot extends Component {
   componentDidMount() {
-    configureSocket(socket);
+    configureSocket(socket, store);
   }
 
   render() {
@@ -32,7 +32,7 @@ class DevRoot extends Component {
 
 class ProdRoot extends Component {
   componentDidMount() {
-    configureSocket(socket);
+    configureSocket(socket, store);
   }
 
   render() {

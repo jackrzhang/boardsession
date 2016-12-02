@@ -10,10 +10,10 @@ export const endLine = () => ({
   type: END_LINE
 });
 
-export const ADD_POINT = 'ADD_POINT';
+export const DRAW_POINT = 'DRAW_POINT';
 
-export const addPoint = pointData => ({
-  type: ADD_POINT,
+export const drawPoint = pointData => ({
+  type: DRAW_POINT,
   size: pointData.size,
   color: pointData.color,
   isEndOfLine: pointData.isEndOfLine,

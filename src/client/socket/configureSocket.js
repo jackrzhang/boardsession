@@ -1,4 +1,4 @@
-const configureSocket = (socket) => {
+const configureSocket = (socket, store) => {
   socket.on('connect', () => {
     // emit new user action for this particular room
     const room = 'temp'; // based on generated window location
