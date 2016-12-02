@@ -10,7 +10,6 @@ const configureSocket = (socket, store) => {
     socket.emit('connectUser', data);
 
     store.dispatch(connectUser(username));
-    console.log('connectUser', data);
   });
 };
 
