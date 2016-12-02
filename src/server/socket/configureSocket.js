@@ -5,7 +5,6 @@ const configureSocket = (io, store) => {
     socket.on('connectUser', (data) => {
       socket.join(data.room);
       store.dispatch(connectUser(data.username));
-      console.log('connectUser', data);
     });
   });
 };
