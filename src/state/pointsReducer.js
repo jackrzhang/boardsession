@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable';
-import { THICKNESS_2, WHITE } from './markerConstants';
+import { WHITE } from './markerConstants';
 
 // initialize with first empty point
 export const initialPoints = List.of(

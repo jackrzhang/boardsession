@@ -25,7 +25,7 @@ const redrawCanvas = (context) => {
     if (!isStartOfLine) {
       context.moveTo(points.get(i - 1).get('x'), points.get(i - 1).get('y'));
     } else {
-      context.moveTo(point.get('x') - 1, point.get('y'));
+      context.moveTo(point.get('x') - 0.1, point.get('y') - 0.1);
     }
     context.lineTo(point.get('x'), point.get('y'));
 
@@ -44,9 +44,7 @@ export const handleMouseDown = (canvas, startLine, addPoint) => {
 
   canvas.addEventListener('mousedown', (e) => {
     startLine();
-
-    const pointData = getPointData(canvas, e);
-    addPoint(pointData);
+    addPoint(getPointData(canvas, e));
 
     redrawCanvas(context);
   }, false);
@@ -57,9 +55,7 @@ export const handleMouseUp = (canvas, endLine, addPoint) => {
 
   canvas.addEventListener('mouseup', (e) => {
     endLine();
-
-    const pointData = getPointData(canvas, e);
-    addPoint(pointData);
+    addPoint(getPointData(canvas, e));
 
     redrawCanvas(context);
   }, false);
@@ -70,9 +66,7 @@ export const handleMouseLeave = (canvas, endLine, addPoint) => {
 
   canvas.addEventListener('mouseleave', (e) => {
     endLine();
-
-    const pointData = getPointData(canvas, e);
-    addPoint(pointData);
+    addPoint(getPointData(canvas, e));
 
     redrawCanvas(context);
   }, false);
@@ -85,9 +79,7 @@ export const handleMouseMove = (canvas, addPoint) => {
     const isDrawing = store.getState().get('board').get('isDrawing');
 
     if (isDrawing) {
-      const pointData = getPointData(canvas, e);
-      addPoint(pointData);
-
+      addPoint(getPointData(canvas, e));
       redrawCanvas(context);
     }
   };
