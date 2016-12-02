@@ -1,12 +1,16 @@
+import { connectUser, disconnectUser } from './socketActions';
+import generateName from 'sillyname';
+
 const configureSocket = (socket, store) => {
   socket.on('connect', () => {
-    // emit new user action for this particular room
-    const room = 'temp'; // based on generated window location
-    socket.emit('room', room);
-  });
+    const room = 'temp';
+    const username = generateName();
 
-  socket.on('message', (data) => {
-    console.log('Incoming message:', data);
+    const data = { room, username };
+    socket.emit('connectUser', data);
+
+    store.dispatch(connectUser(username));
+    console.log('connectUser', data);
   });
 };
 
