@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {
   startLine,
   endLine,
-  drawPoint
+  addPoint
 } from './canvasActions';
 
 import Canvas from './Canvas.view';
@@ -20,8 +20,8 @@ const mapDispatchToProps = dispatch => ({
   endLine: () => {
     dispatch(endLine());
   },
-  drawPoint: (pointData) => {
-    dispatch(drawPoint(pointData));
+  addPoint: (pointData) => {
+    dispatch(addPoint(pointData));
   }
 });
 
