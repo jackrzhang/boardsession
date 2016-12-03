@@ -1,4 +1,4 @@
-import { OrderedMap } from 'immutable';
+import { OrderedMap, Map } from 'immutable';
 
 import {
   CONNECT_USER,
@@ -13,9 +13,11 @@ export const initialUsers = OrderedMap();
 const usersReducer = (state = initialUsers, action) => {
   switch (action.type) {
     case CONNECT_USER:
-      return state.set(action.username, true);
+      return state.set(action.userId, Map({
+        username: action.username
+      }));
     case DISCONNECT_USER:
-      return state.delete(action.username);
+      return state.delete(action.userId);
     default:
       return state;
   }
