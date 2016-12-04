@@ -12,3 +12,9 @@ export const disconnectUser = userId => ({
   type: DISCONNECT_USER,
   userId
 });
+
+export const SYNCHRONIZE = 'SYNCHRONIZE';
+
+export const synchronize = (points) => ({
+    
+});

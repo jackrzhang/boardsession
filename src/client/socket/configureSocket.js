@@ -18,7 +18,7 @@ const configureSocket = (socket, store) => {
     store.dispatch(action);
   });
 
-  // CONNECT_USER, DISCONNECT_USER from server
+  // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER from server
   socket.on('action', (action) => {
     store.dispatch(action);
   });
