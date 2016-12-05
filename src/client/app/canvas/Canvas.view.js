@@ -7,13 +7,18 @@ import {
   handleMouseLeave,
   handleMouseMove
 } from './canvasEventHandlers';
+import { sizeCanvas } from './../../canvasHelpers';
 
 class Canvas extends Component {
-  // hook canvas event handlers to redux actions
   componentDidMount() {
     const canvas = document.getElementById('canvas');
     const { startLine, endLine, addPoint } = this.props;
 
+    // size canvas, handle global resize event
+    sizeCanvas(canvas);
+    window.onresize = sizeCanvas.bind(null, canvas);
+
+    // hook canvas event handlers to redux actions
     handleMouseDown(canvas, startLine, addPoint);
     handleMouseUp(canvas, endLine, addPoint);
     handleMouseLeave(canvas, endLine, addPoint);

@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 import { store } from './index';
 
 export const getPointData = (canvas, e) => {
@@ -44,4 +46,12 @@ export const redrawCanvas = (context) => {
       context.stroke();
     });
   });
+};
+
+export const sizeCanvas = (canvas) => {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const context = canvas.getContext('2d');
+  redrawCanvas(context);
 };

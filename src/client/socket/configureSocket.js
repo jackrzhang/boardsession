@@ -23,7 +23,6 @@ const configureSocket = (socket, store) => {
 
   // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER, ADD_POINT from server
   socket.on('action', (action) => {
-    console.log(action);
     store.dispatch(action);
 
     const context = document.getElementById('canvas').getContext('2d');

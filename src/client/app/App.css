@@ -4,16 +4,17 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   height: 100%;
   width: 100%;
+  margin: 0;
   background-color: rgb(235, 235, 235);
   color: rgb(25, 25, 25);
   font-family: 'Raleway', 'Arial';
 }
 
 div.app {
-  margin: 30vh 0 0 50px;
+  margin: 0;
 }
 
 h1.title {
