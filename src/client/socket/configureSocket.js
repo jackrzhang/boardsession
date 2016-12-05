@@ -1,5 +1,7 @@
-import { ADD_POINT, connectUser } from './socketActions';
+import { connectUser } from './socketActions';
 import { SYNCHRONIZE } from './../../server/socket/socketActions';
+import { ADD_POINT } from './../app/canvas/canvasActions';
+
 import { redrawCanvas } from './../canvasHelpers';
 import generateName from 'sillyname';
 
