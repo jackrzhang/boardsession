@@ -4,6 +4,10 @@ import rootReducer from './../state/rootReducer.client';
 import { persistState } from 'redux-devtools';
 import DevTools from './DevTools';
 
+import createSocketMiddleware from './socket/createSocketMiddleware';
+import socket from './socket/socket';
+const socketMiddleware = createSocketMiddleware(socket);
+
 const getDebugSessionKey = () => {
   const matches = window.location.href.match(/[?&]debug_session=([^&#]+)\b/);
   return (matches && matches.length > 0) ? matches[1] : null;
@@ -12,7 +16,7 @@ const getDebugSessionKey = () => {
 let enhancer;
 if (process.env.NODE_ENV === 'development') {
   enhancer = compose(
-    applyMiddleware(),
+    applyMiddleware(socketMiddleware),
     DevTools.instrument({
       maxAge: 50,
       shouldCatchErrors: true
@@ -20,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
     persistState(getDebugSessionKey())
   );
 } else {
-  enhancer = applyMiddleware();
+  enhancer = applyMiddleware(socketMiddleware);
 }
 
 const configureStore = (initialState) => {

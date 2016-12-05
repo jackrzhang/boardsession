@@ -10,8 +10,7 @@ import configureStore from './configureStore';
 export const store = configureStore();
 
 import configureSocket from './socket/configureSocket';
-import io from 'socket.io-client';
-export const socket = io.connect();
+import socket from './socket/socket';
 
 class DevRoot extends Component {
   componentDidMount() {

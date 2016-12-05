@@ -15,6 +15,8 @@ export const disconnectUser = userId => ({
 
 export const SYNCHRONIZE = 'SYNCHRONIZE';
 
-export const synchronize = (points) => ({
-    
+export const synchronize = (users, points) => ({
+  type: SYNCHRONIZE,
+  users,
+  points
 });

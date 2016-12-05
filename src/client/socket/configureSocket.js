@@ -1,8 +1,6 @@
-import {
-  CONNECT_USER,
-  connectUser
-} from './socketActions';
-
+import { connectUser } from './socketActions';
+import { SYNCHRONIZE } from './../../server/socket/socketActions';
+import { redrawCanvas } from './../canvasHelpers';
 import generateName from 'sillyname';
 
 const configureSocket = (socket, store) => {
@@ -11,16 +9,24 @@ const configureSocket = (socket, store) => {
     const userId = socket.id;
     const username = generateName();
 
-    const data = { room, userId, username };
-    socket.emit(CONNECT_USER, data);
-
     const action = connectUser(userId, username);
     store.dispatch(action);
+
+    const data = { room, userId, username };
+    socket.emit('connectUser', data);
+
+    // synchronize all prior users and points
+    socket.emit('requestSynchronize', userId);
   });
 
-  // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER from server
+  // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER, ADD_POINT from server
   socket.on('action', (action) => {
     store.dispatch(action);
+
+    if (action.type === SYNCHRONIZE) {
+      const context = document.getElementById('canvas').getContext('2d');
+      redrawCanvas(context);
+    }
   });
 };
 
