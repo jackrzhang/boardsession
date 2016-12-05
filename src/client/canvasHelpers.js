@@ -49,7 +49,7 @@ export const redrawCanvas = (context) => {
 };
 
 export const sizeCanvas = (canvas) => {
-  canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight - 60;
   canvas.width = window.innerWidth;
 
   const context = canvas.getContext('2d');
