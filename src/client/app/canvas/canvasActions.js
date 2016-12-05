@@ -14,7 +14,6 @@ export const ADD_POINT = 'ADD_POINT';
 
 export const addPoint = pointData => ({
   type: ADD_POINT,
-  socket: true,
   userId: pointData.userId,
   size: pointData.size,
   color: pointData.color,

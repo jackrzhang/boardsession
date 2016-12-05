@@ -21,17 +21,20 @@ export const redrawCanvas = (context) => {
   // Iterate through each user, then draw points for individual users
   store.getState().get('points').valueSeq().toArray()
   .forEach((userPoints) => {
-    userPoints.forEach((point, i, points) => {
+    userPoints.forEach((point, i) => {
       context.beginPath();
 
       // ensure that point is NOT the start of a line
-      const isStartOfLine = (i && points.get(i - 1).get('isEndOfLine'));
+      const isStartOfLine = (i && userPoints.get(i - 1).get('isEndOfLine'));
       if (!isStartOfLine) {
-        context.moveTo(points.get(i - 1).get('x'), points.get(i - 1).get('y'));
+        context.moveTo(userPoints.get(i - 1).get('x'), userPoints.get(i - 1).get('y'));
       } else {
         context.moveTo(point.get('x') - 0.1, point.get('y') - 0.1);
       }
-      context.lineTo(point.get('x'), point.get('y'));
+
+      if (i) {
+        context.lineTo(point.get('x'), point.get('y'));
+      }
 
       context.closePath();
 

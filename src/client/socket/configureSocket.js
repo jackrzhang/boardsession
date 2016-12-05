@@ -1,4 +1,4 @@
-import { connectUser } from './socketActions';
+import { ADD_POINT, connectUser } from './socketActions';
 import { SYNCHRONIZE } from './../../server/socket/socketActions';
 import { redrawCanvas } from './../canvasHelpers';
 import generateName from 'sillyname';
@@ -21,10 +21,12 @@ const configureSocket = (socket, store) => {
 
   // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER, ADD_POINT from server
   socket.on('action', (action) => {
+    console.log(action);
     store.dispatch(action);
 
-    if (action.type === SYNCHRONIZE) {
-      const context = document.getElementById('canvas').getContext('2d');
+    const context = document.getElementById('canvas').getContext('2d');
+    if (action.type === SYNCHRONIZE ||
+        action.type === ADD_POINT) {
       redrawCanvas(context);
     }
   });

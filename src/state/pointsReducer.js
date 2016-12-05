@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable';
-import { WHITE } from './markerConstants';
+import { BLACK } from './markerConstants';
 
 import { ADD_POINT } from './../client/app/canvas/canvasActions';
 import { CONNECT_USER } from './../client/socket/socketActions';
@@ -9,7 +9,7 @@ const initialPoints = Map();
 const initialUserPoints = List([
   Map({
     size: 0,
-    color: WHITE,
+    color: BLACK,
     isEndOfLine: true,
     x: 0,
     y: 0
@@ -19,7 +19,7 @@ const initialUserPoints = List([
 const pointsToImmutable = (points) => {
   let immutablePoints = initialPoints;
   Object.keys(points).forEach((userId) => {
-    immutablePoints = immutablePoints.set(userId, initialUserPoints);
+    immutablePoints = immutablePoints.set(userId, List());
 
     points[userId].forEach((point) => {
       immutablePoints = immutablePoints.set(userId, immutablePoints.get(userId).push(

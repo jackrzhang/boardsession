@@ -15,7 +15,9 @@ const boardReducer = (state = initialBoard, action) => {
     case END_LINE:
       return state.set('isDrawing', false);
     case CONNECT_USER:
-      return state.set('userId', action.userId);
+      return state.get('userId') === null ?
+        state.set('userId', action.userId) :
+        state;
     default:
       return state;
   }

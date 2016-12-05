@@ -1,5 +1,6 @@
-import { store } from './../../index';
+import { store, socket } from './../../index';
 import { getPointData, redrawCanvas } from './../../canvasHelpers';
+import { addPoint as addPointActionCreator } from './canvasActions';
 
 // Event Handlers
 export const handleMouseDown = (canvas, startLine, addPoint) => {
@@ -7,9 +8,13 @@ export const handleMouseDown = (canvas, startLine, addPoint) => {
 
   canvas.addEventListener('mousedown', (e) => {
     startLine();
-    addPoint(getPointData(canvas, e));
 
+    const pointData = getPointData(canvas, e);
+    addPoint(pointData);
     redrawCanvas(context);
+
+    const action = addPointActionCreator(pointData);
+    socket.emit('action', action);
   }, false);
 };
 
@@ -18,9 +23,13 @@ export const handleMouseUp = (canvas, endLine, addPoint) => {
 
   canvas.addEventListener('mouseup', (e) => {
     endLine();
-    addPoint(getPointData(canvas, e));
 
+    const pointData = getPointData(canvas, e);
+    addPoint(pointData);
     redrawCanvas(context);
+
+    const action = addPointActionCreator(pointData);
+    socket.emit('action', action);
   }, false);
 };
 
@@ -28,10 +37,17 @@ export const handleMouseLeave = (canvas, endLine, addPoint) => {
   const context = canvas.getContext('2d');
 
   canvas.addEventListener('mouseleave', (e) => {
-    endLine();
-    addPoint(getPointData(canvas, e));
+    const isDrawing = store.getState().get('board').get('isDrawing');
+    if (isDrawing) {
+      endLine();
 
-    redrawCanvas(context);
+      const pointData = getPointData(canvas, e);
+      addPoint(pointData);
+      redrawCanvas(context);
+
+      const action = addPointActionCreator(pointData);
+      socket.emit('action', action);
+    }
   }, false);
 };
 
@@ -40,10 +56,14 @@ export const handleMouseMove = (canvas, addPoint) => {
 
   const listener = (e) => {
     const isDrawing = store.getState().get('board').get('isDrawing');
-
     if (isDrawing) {
+      const pointData = getPointData(canvas, e);
+
       addPoint(getPointData(canvas, e));
       redrawCanvas(context);
+
+      const action = addPointActionCreator(pointData);
+      socket.emit('action', action);
     }
   };
 
