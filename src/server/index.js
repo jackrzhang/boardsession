@@ -33,9 +33,9 @@ configureViewEngine(app, express);
 import configureStaticAssets from './config/staticAssets';
 configureStaticAssets(app, express);
 
-// View Routes
-import routeViews from './routes/viewRoutes';
-routeViews(app);
+// HTTP Requests
+import routeRequests from './http/requestRoutes';
+routeRequests(app, store);
 
 // Web Socket Communication
 import configureSocket from './socket/configureSocket';

@@ -1,10 +1,6 @@
 import { OrderedMap, Map } from 'immutable';
 
-import {
-  CONNECT_USER,
-  DISCONNECT_USER
-} from './../client/socket/socketActions';
-
+import { CONNECT_USER, DISCONNECT_USER } from './../client/socket/socketActions';
 import { SYNCHRONIZE } from './../server/socket/socketActions';
 
 // Utilize OrderedMap for constant time insertion/deletion with

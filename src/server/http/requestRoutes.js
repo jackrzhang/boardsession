@@ -1,8 +1,8 @@
-const routeViews = (app) => {
+const routeRequests = (app) => {
   app.get('/',
   (req, res) => {
     res.render('index');
   });
 };
 
-export default routeViews;
+export default routeRequests;
