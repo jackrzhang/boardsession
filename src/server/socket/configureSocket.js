@@ -10,7 +10,7 @@ const configureSocket = (io, store) => {
       const { room, userId, username } = data;
       socket.join(room);
 
-      const action = connectUser(userId, username);
+      const action = connectUser(room, userId, username);
       store.dispatch(action);
 
       socket.broadcast.emit('action', action);
