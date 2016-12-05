@@ -8,9 +8,9 @@ html, body {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: rgb(235, 235, 235);
   color: rgb(25, 25, 25);
   font-family: 'Raleway', 'Arial';
+  background-image: inline('./../assets/subtle_dots_@2X.png');
 }
 
 div.app {
