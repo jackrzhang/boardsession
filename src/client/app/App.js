@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import 'normalize.css';
 import styles from './App.css';
 
 import Toolbar from './toolbar/Toolbar.container';
