@@ -16,7 +16,7 @@ const configDev = {
   output: {
     path: '/', // output.path is irrelevant - bundled assets are served from memory
     filename: 'index.bundle.js',
-    publicPath: `http://${HOT_HOST}:${HOT_PORT}/assets/`
+    publicPath: `http://${HOT_HOST}:${HOT_PORT}/board-assets/`
   },
   module: {
     loaders: [

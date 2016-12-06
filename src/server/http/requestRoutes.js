@@ -16,7 +16,7 @@ const routeRequests = (app, store) => {
   app.get('/b/:room',
   (req, res) => {
     if (store.getState().get(req.params.room)) {
-      res.render('board');
+      res.render('board', { layout: 'board' });
     } else {
       res.redirect('/');
     }
