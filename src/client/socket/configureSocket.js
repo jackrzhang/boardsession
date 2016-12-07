@@ -7,18 +7,17 @@ import generateName from 'sillyname';
 
 const configureSocket = (socket, store) => {
   socket.on('connect', () => {
-    const room = 'temp'; // from window
+    const room = store.getState().get('board').get('room');
     const userId = socket.id;
     const username = generateName();
 
-    const action = connectUser(userId, username);
+    const action = connectUser(room, userId, username);
     store.dispatch(action);
 
+    // emit connection status, synchronize all prior users and points
     const data = { room, userId, username };
     socket.emit('connectUser', data);
-
-    // synchronize all prior users and points
-    socket.emit('requestSynchronize', userId);
+    socket.emit('requestSynchronize', data);
   });
 
   // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER, ADD_POINT from server

@@ -1,15 +1,17 @@
 export const CONNECT_USER = 'CONNECT_USER';
 
-export const connectUser = (userId, username) => ({
+export const connectUser = (room, userId, username) => ({
   type: CONNECT_USER,
+  room,
   userId,
   username
 });
 
 export const DISCONNECT_USER = 'DISCONNECT_USER';
 
-export const disconnectUser = userId => ({
+export const disconnectUser = (room, userId) => ({
   type: DISCONNECT_USER,
+  room,
   userId
 });
 
