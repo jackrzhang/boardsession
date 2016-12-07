@@ -1,8 +1,8 @@
 import { Map } from 'immutable';
 
 import { CREATE_ROOM } from './../server/http/httpActions';
-import { CONNECT_USER, DISCONNECT_USER } from './../client/socket/socketActions';
-import { SYNCHRONIZE } from './../server/socket/socketActions';
+import { CONNECT_USER } from './../client/socket/socketActions';
+import { SYNCHRONIZE, DISCONNECT_USER } from './../server/socket/socketActions';
 import { ADD_POINT } from './../client/app/canvas/canvasActions';
 
 import { combineReducers } from 'redux-immutable';
