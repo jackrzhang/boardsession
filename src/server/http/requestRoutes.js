@@ -9,6 +9,7 @@ const routeRequests = (app, store) => {
   app.post('/api/rooms',
   (req, res) => {
     const room = req.body.room;
+    console.log(req.body);
     store.dispatch(createRoom(room));
     res.send(room);
   });

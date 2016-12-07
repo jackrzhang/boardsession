@@ -20,7 +20,7 @@ const initialState = Map();
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_ROOM:
-      return state.set(action.room, roomReducer());
+      return state.set(action.room, roomReducer(undefined, action));
     case CONNECT_USER:
       return state.set(action.room, roomReducer(state.get(action.room), action));
     case DISCONNECT_USER:
