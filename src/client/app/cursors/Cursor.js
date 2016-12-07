@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './Cursor.css';
 
 class Cursor extends Component {
   constructor(props) {
@@ -8,9 +7,20 @@ class Cursor extends Component {
   }
 
   render() {
+    const styles = {
+      position: 'absolute',
+      'z-index': '100px',
+      height: '25px',
+      width: '25px',
+      color: 'white',
+      backgroundColor: 'red',
+      top: this.props.y + 60,
+      left: this.props.x
+    };
+
     return (
       <div
-        className={styles.cursor}
+        style={styles}
       >
         {this.initials}
       </div>
