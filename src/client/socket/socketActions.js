@@ -6,4 +6,3 @@ export const connectUser = (room, userId, username) => ({
   userId,
   username
 });
-
