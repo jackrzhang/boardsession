@@ -4,7 +4,7 @@ import styles from './App.css';
 
 import Toolbar from './toolbar/Toolbar.container';
 import Canvas from './canvas/Canvas.container';
-import Cursors from './cursors/Cursor.container';
+import Cursors from './cursors/Cursors.container';
 
 class App extends Component {
   render() {

@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import Cursors from './Cursors.view';
 
 const mapStateToProps = state => ({
-  user: state.get('board').get('user'),
-  cursors: state.get('users')
+  // all users except for the current client
+  displayedUsers: state.get('users').delete(state.get('board').get('user'))
 });
 
 export default connect(
