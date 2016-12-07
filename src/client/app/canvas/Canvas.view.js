@@ -18,11 +18,13 @@ class Canvas extends Component {
     sizeCanvas(canvas);
     window.onresize = sizeCanvas.bind(null, canvas);
 
-    // hook canvas event handlers to redux actions
-    handleMouseDown(canvas, startLine, addPoint);
-    handleMouseUp(canvas, endLine, addPoint);
-    handleMouseLeave(canvas, endLine, addPoint);
-    handleMouseMove(canvas, addPoint);
+    // Wait 1 second for sync, then hook canvas event handlers to redux actions
+    setTimeout(() => {
+      handleMouseDown(canvas, startLine, addPoint);
+      handleMouseUp(canvas, endLine, addPoint);
+      handleMouseLeave(canvas, endLine, addPoint);
+      handleMouseMove(canvas, addPoint);
+    }, 1000);
   }
 
   // prevent React from attempting to re-render the canvas with state changes

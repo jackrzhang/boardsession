@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className={styles.app}>
         <Toolbar />
-        <Canvas />
+        <div className={styles.canvasContainer}>
+          <Canvas />
+        </div>
       </div>
     );
   }
