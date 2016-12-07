@@ -1,6 +1,6 @@
 canvas.canvasClass {
-/*  margin-top: 60px;
-*/  cursor: crosshair;
+  margin-top: 60px;
+  cursor: crosshair;
   background-color: transparent;
   position: absolute;
   top: 0;
