@@ -15,11 +15,11 @@ const routeRequests = (app, store) => {
 
   app.get('/b/:room',
   (req, res) => {
-    // if (store.getState().get(req.params.room)) {
+    if (store.getState().get(req.params.room)) {
       res.render('board', { layout: 'board' });
-    // } else {
-    //   res.redirect('/');
-    // }
+    } else {
+      res.redirect('/');
+    }
   });
 
   // Wildcard 404
