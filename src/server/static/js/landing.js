@@ -45,7 +45,6 @@ function makeUsersFeelLikeStuffIsLoading(nextUrl) {
       window.location.href = nextUrl;
     }, 100)
   }, 100);
-  
 }
 
 function startBoardSession(e) {
@@ -69,7 +68,7 @@ function startBoardSession(e) {
       var errorMessage = request.responseText;
       console.error(errorMessage);
     }
-  )
+  );
 }
 
 documentReady(function() {

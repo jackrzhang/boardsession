@@ -22,3 +22,12 @@ export const addPoint = pointData => ({
   x: pointData.x,
   y: pointData.y
 });
+
+export const UPDATE_USER_LOCATION = 'UPDATE_USER_LOCATION';
+
+export const updateUserLocation = (room, x, y) => ({
+  type: UPDATE_USER_LOCATION,
+  room,
+  x,
+  y
+});

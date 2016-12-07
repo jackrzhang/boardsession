@@ -10,6 +10,7 @@ html, body {
   margin: 0;
   color: rgb(25, 25, 25);
   font-family: 'Raleway', 'Arial';
+  overflow: hidden;
   background-image: inline('./../assets/subtle_dots_@2X.png');
 }
 
