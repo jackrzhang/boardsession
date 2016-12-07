@@ -8,6 +8,7 @@ export const getPointData = (canvas, e) => {
   const rect = canvas.getBoundingClientRect();
 
   return {
+    room: boardState.get('room'),
     userId: boardState.get('userId'),
     isEndOfLine: !boardState.get('isDrawing'),
     size: markerState.get('size'),

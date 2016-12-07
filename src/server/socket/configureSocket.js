@@ -1,7 +1,7 @@
 import {
   connectUser,
   disconnectUser,
-  synchronize,
+  synchronize
 } from './socketActions';
 
 const configureSocket = (io, store) => {
@@ -9,7 +9,9 @@ const configureSocket = (io, store) => {
     socket.on('connectUser', (data) => {
       const { room, userId, username } = data;
       socket.join(room);
-      socket.roomUrl = room; // set a new property on socket object
+
+      // set a new property on socket object, to be used on disconnect
+      socket.roomUrl = room;
 
       const action = connectUser(room, userId, username);
       store.dispatch(action);
@@ -18,12 +20,14 @@ const configureSocket = (io, store) => {
     });
 
     socket.on('requestSynchronize', (data) => {
-      const { room, userId } = data;
+      const { room } = data;
 
       const action = synchronize(
         store.getState().get(room).get('users'),
         store.getState().get(room).get('points')
       );
+
+      // emit to synchronize sender client only
       socket.emit('action', action);
     });
 
@@ -40,7 +44,7 @@ const configureSocket = (io, store) => {
     // ADD_POINT from client
     socket.on('action', (action) => {
       store.dispatch(action);
-      socket.broadcast.emit('action', action);
+      socket.broadcast.to(action.room).emit('action', action);
     });
   });
 };

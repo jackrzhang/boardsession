@@ -14,6 +14,7 @@ export const ADD_POINT = 'ADD_POINT';
 
 export const addPoint = pointData => ({
   type: ADD_POINT,
+  room: pointData.room,
   userId: pointData.userId,
   size: pointData.size,
   color: pointData.color,
