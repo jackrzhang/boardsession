@@ -1,6 +1,9 @@
 import { store, socket } from './../../index';
 import { getPointData, redrawCanvas } from './../../canvasHelpers';
-import { addPoint as addPointActionCreator } from './canvasActions';
+import {
+  addPoint as addPointActionCreator,
+  updateUserLocation as updateUserLocationActionCreator
+} from './canvasActions';
 
 // Event Handlers
 export const handleMouseDown = (canvas, startLine, addPoint) => {
@@ -55,16 +58,22 @@ export const handleMouseMove = (canvas, addPoint) => {
   const context = canvas.getContext('2d');
 
   const listener = (e) => {
+    const pointData = getPointData(canvas, e);
+
     const isDrawing = store.getState().get('board').get('isDrawing');
     if (isDrawing) {
-      const pointData = getPointData(canvas, e);
-
       addPoint(getPointData(canvas, e));
       redrawCanvas(context);
 
-      const action = addPointActionCreator(pointData);
-      socket.emit('action', action);
+      const addPointAction = addPointActionCreator(pointData);
+      socket.emit('action', addPointAction);
     }
+
+    // update user cursor location
+    const updateUserLocationAction = updateUserLocationActionCreator(pointData);
+
+    store.dispatch(updateUserLocationAction);
+    socket.emit('action', updateUserLocationAction);
   };
 
   canvas.addEventListener('mousemove', listener, false);
