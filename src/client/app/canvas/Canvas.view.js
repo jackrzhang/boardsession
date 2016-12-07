@@ -34,8 +34,6 @@ class Canvas extends Component {
     return (
       <canvas
         id="canvas"
-        width={600}
-        height={600}
         className={styles.canvasClass}
       />
     );
