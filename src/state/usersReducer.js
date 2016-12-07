@@ -13,11 +13,7 @@ const usersToImmutable = (users) => {
   let immutableUsers = OrderedMap();
 
   Object.keys(users).forEach((userId) => {
-    immutableUsers = immutableUsers.set(userId, Map({
-      username: users[userId].username,
-      x: users[userId].x,
-      y: users[userId].y
-    }));
+    immutableUsers = immutableUsers.set(userId, Map(users[userId]));
   });
 
   return immutableUsers;
@@ -30,17 +26,17 @@ const usersReducer = (state = initialUsers, action) => {
     case CONNECT_USER:
       return state.set(action.userId, Map({
         username: action.username,
+        color: action.color,
         x: 50,
         y: 50
       }));
     case DISCONNECT_USER:
       return state.delete(action.userId);
     case UPDATE_USER_LOCATION:
-      return state.set(action.userId, Map({
-        username: state.get(action.userId).get('username'),
-        x: action.x,
-        y: action.y
-      }));
+      return state.set(action.userId, state.get(action.userId)
+        .set('x', action.x)
+        .set('y', action.y)
+      );
     default:
       return state;
   }

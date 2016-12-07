@@ -10,12 +10,13 @@ const configureSocket = (socket, store) => {
     const room = store.getState().get('board').get('room');
     const userId = socket.id;
     const username = generateName();
+    const color = `hsl(${Math.floor(Math.random() * 360).toString()}, 100%, 67.5%)`;
 
-    const action = connectUser(room, userId, username);
+    const action = connectUser(room, userId, username, color);
     store.dispatch(action);
 
     // emit connection status, synchronize all prior users and points
-    const data = { room, userId, username };
+    const data = { room, userId, username, color };
     socket.emit('connectUser', data);
     socket.emit('requestSynchronize', data);
   });

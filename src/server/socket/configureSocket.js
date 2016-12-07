@@ -9,13 +9,13 @@ import {
 const configureSocket = (io, store) => {
   io.sockets.on('connection', (socket) => {
     socket.on('connectUser', (data) => {
-      const { room, userId, username } = data;
+      const { room, userId, username, color } = data;
       socket.join(room);
 
       // set a new property on socket object, to be used on disconnect
       socket.roomUrl = room;
 
-      const action = connectUser(room, userId, username);
+      const action = connectUser(room, userId, username, color);
       store.dispatch(action);
 
       socket.broadcast.emit('action', action);
