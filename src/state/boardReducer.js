@@ -4,6 +4,7 @@ import { START_LINE, END_LINE } from './../client/app/canvas/canvasActions';
 import { CONNECT_USER } from './../client/socket/socketActions';
 
 export const initialBoard = Map({
+  room: window.location.pathname.split('/')[2],
   userId: null,
   isDrawing: false
 });
