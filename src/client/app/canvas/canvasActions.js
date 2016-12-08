@@ -25,7 +25,7 @@ export const addPoint = pointData => ({
 
 export const UPDATE_USER_LOCATION = 'UPDATE_USER_LOCATION';
 
-export const updateUserLocation = (pointData) => ({
+export const updateUserLocation = pointData => ({
   type: UPDATE_USER_LOCATION,
   room: pointData.room,
   userId: pointData.userId,
