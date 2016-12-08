@@ -53,8 +53,7 @@ const configServer = {
     require('postcss-import')({ addDependencyTo: webpackArg }),
     require('postcss-url'),
     require('postcss-assets'),
-    require('precss'),
-    require('postcss-cssnext')
+    require('precss')
   ],
   devtool: 'source-map'
 };

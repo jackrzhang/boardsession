@@ -50,7 +50,6 @@ const configDev = {
     require('postcss-url'),
     require('postcss-assets'),
     require('precss'),
-    require('postcss-cssnext')
   ],
   devtool: 'source-map'
 };
