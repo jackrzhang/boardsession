@@ -4,6 +4,7 @@ import styles from './Toolbar.css';
 import Color from './color/Color.container';
 import Size from './size/Size.container';
 import Mode from './mode/Mode.container';
+import Clear from './clear/Clear.container';
 
 class Toolbar extends Component {
   render() {
@@ -13,6 +14,7 @@ class Toolbar extends Component {
           <Color />
           <Size />
           <Mode />
+          <Clear />
         </span>
         <span className={styles.alignRight}>
           TEST
