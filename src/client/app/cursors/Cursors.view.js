@@ -7,8 +7,9 @@ class Cursors extends Component {
   render() {
     return (
       <div>
-        {this.props.displayedUsers.map(user => (
+        {this.props.displayedUsers.valueSeq().toArray().map(user => (
           <Cursor
+            key={user.get('username')}
             username={user.get('username')}
             color={user.get('color')}
             x={user.get('x')}
