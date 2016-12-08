@@ -18,6 +18,16 @@ class Size extends Component {
             2
           </span>
           <span
+            className={styles.dropdownOption}
+          >
+            3
+          </span>
+          <span
+            className={styles.dropdownOption}
+          >
+            4
+          </span>
+          <span
             className={`${styles.dropdownOption} ${styles.lastOption}`}
           >
             5
