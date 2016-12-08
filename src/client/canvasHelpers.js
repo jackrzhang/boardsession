@@ -1,18 +1,24 @@
 /* eslint-disable no-param-reassign */
 
 import { store } from './index';
+import { WHITE, ERASE } from './../state/markerConstants';
 
 export const getPointData = (canvas, e) => {
   const boardState = store.getState().get('board');
   const markerState = store.getState().get('marker');
   const rect = canvas.getBoundingClientRect();
 
+  // override color to be white if marker mode is ERASE
+  const pointColor = markerState.get('mode') === ERASE ?
+    WHITE :
+    markerState.get('color');
+
   return {
     room: boardState.get('room'),
     userId: boardState.get('userId'),
     isEndOfLine: !boardState.get('isDrawing'),
     size: markerState.get('size'),
-    color: markerState.get('color'),
+    color: pointColor,
     x: e.clientX - rect.left,
     y: e.clientY - rect.top
   };
