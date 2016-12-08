@@ -11,7 +11,7 @@ html, body {
   color: rgb(25, 25, 25);
   font-family: 'Raleway', 'Arial';
   overflow: hidden;
-  background-image: inline('./../assets/subtle_dots_@2X.png');
+  background-image: url('/static-assets/images/subtle_dots_@2X.png');
 }
 
 div.app {

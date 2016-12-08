@@ -2,5 +2,10 @@
 
 body {
   text-align: center;
-  background-color: white;
+  background-image: url('/static-assets/images/subtle_dots_@2X.png');
+}
+
+.title {
+  padding: 40px 0 20px 0;
+  margin-top: 10%;
 }
