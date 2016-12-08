@@ -3,7 +3,7 @@ import Color from './Color.view';
 
 
 const mapStateToProps = state => ({
-
+  
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -3,7 +3,7 @@ import Mode from './Mode.view';
 
 
 const mapStateToProps = state => ({
-
+  
 });
 
 const mapDispatchToProps = dispatch => ({
