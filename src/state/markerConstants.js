@@ -18,5 +18,5 @@ export const PURPLE = '#6626EF';
 export const BROWN = '#795548';
 
 // Modes
-export const DRAW = 'DRAW';
-export const ERASE = 'ERASE';
+export const DRAW = 'Draw';
+export const ERASE = 'Erase';

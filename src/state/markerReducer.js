@@ -25,7 +25,7 @@ const markerReducer = (state = initialMarker, action) => {
     case CHANGE_SIZE:
       return state.set('size', action.size);
     case CHANGE_MODE:
-      return state.set('size', action.size);
+      return state.set('mode', action.mode);
     default:
       return state;
   }
