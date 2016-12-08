@@ -22,7 +22,8 @@ const configureSocket = (socket, store) => {
     socket.emit('requestSynchronize', data);
   });
 
-  // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER, ADD_POINT, UPDATE_USER_LOCATION from server
+  // SYNCHRONIZE, CONNECT_USER, DISCONNECT_USER, ADD_POINT, CLEAR_POINTS,
+  // UPDATE_USER_LOCATION from server
   socket.on('action', (action) => {
     store.dispatch(action);
 
