@@ -16,3 +16,7 @@ export const GREEN = '#18CE85';
 export const BLUE = '#2E5FE8';
 export const PURPLE = '#6626EF';
 export const BROWN = '#795548';
+
+// Modes
+export const DRAW = 'DRAW';
+export const ERASE = 'ERASE';
