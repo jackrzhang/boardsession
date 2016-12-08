@@ -1,15 +1,17 @@
 .cursor {
   position: absolute;
-  z-index: 100;
+  z-index: 1;
   height: 32px;
   width: 32px;
   border-radius: 0 14px 14px 14px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
   color: white;
+  border: 1px solid white;
+  box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.4);
 }
 
 .cursorText {
-  margin: 3px 0 0 4px;
+  margin: 3px 0 0 5px;
 }
