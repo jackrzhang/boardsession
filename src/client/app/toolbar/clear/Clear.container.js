@@ -2,13 +2,15 @@ import { connect } from 'react-redux';
 import Clear from './Clear.view';
 
 import { clearPoints } from './../toolbarActions';
-import { socket } from './../../../index';
+import { store, socket } from './../../../index';
+import { redrawCanvas } from './../../../canvasHelpers';
 
 const mapDispatchToProps = dispatch => ({
   clearPoints: () => {
-    const action = clearPoints();
-    socket.emit('action', action);
+    const action = clearPoints(store.getState().get('board').get('room'));
     dispatch(action);
+    socket.emit('action', action);
+    redrawCanvas(document.getElementById('canvas').getContext('2d'));
   }
 });
 

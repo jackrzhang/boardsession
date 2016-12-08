@@ -1,6 +1,7 @@
 import { connectUser } from './socketActions';
 import { SYNCHRONIZE } from './../../server/socket/socketActions';
 import { ADD_POINT } from './../app/canvas/canvasActions';
+import { CLEAR_POINTS } from './../app/toolbar/toolbarActions';
 
 import { redrawCanvas } from './../canvasHelpers';
 import generateName from 'sillyname';
@@ -29,7 +30,8 @@ const configureSocket = (socket, store) => {
 
     const context = document.getElementById('canvas').getContext('2d');
     if (action.type === SYNCHRONIZE ||
-        action.type === ADD_POINT) {
+        action.type === ADD_POINT ||
+        action.type === CLEAR_POINTS) {
       redrawCanvas(context);
     }
   });

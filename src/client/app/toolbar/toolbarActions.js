@@ -21,6 +21,7 @@ export const changeMode = mode => ({
 
 export const CLEAR_POINTS = 'CLEAR_POINTS';
 
-export const clearPoints = () => ({
-  type: CLEAR_POINTS
+export const clearPoints = room => ({
+  type: CLEAR_POINTS,
+  room
 });

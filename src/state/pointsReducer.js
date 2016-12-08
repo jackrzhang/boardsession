@@ -40,7 +40,7 @@ const pointsToImmutable = (points) => {
 
 const clearPointsByUser = (points) => {
   let clearedPoints = points;
-  Object.keys(points).forEach((userId) => {
+  points.keySeq().toArray().forEach((userId) => {
     clearedPoints = clearedPoints.set(userId, initialUserPoints);
   });
 
