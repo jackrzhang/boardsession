@@ -10,6 +10,7 @@ class Cursors extends Component {
         {this.props.displayedUsers.map(user => (
           <Cursor
             username={user.get('username')}
+            color={user.get('color')}
             x={user.get('x')}
             y={user.get('y')}
           />

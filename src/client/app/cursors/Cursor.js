@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import styles from './Cursor.css';
 
 class Cursor extends Component {
   constructor(props) {
@@ -7,22 +8,18 @@ class Cursor extends Component {
   }
 
   render() {
-    const styles = {
-      position: 'absolute',
-      'z-index': '100',
-      height: '25px',
-      width: '25px',
-      color: 'white',
-      backgroundColor: 'red',
+    const dynamicStyles = {
+      backgroundColor: this.props.color,
       top: this.props.y + 60,
       left: this.props.x
     };
 
     return (
       <div
-        style={styles}
+        className={styles.cursor}
+        style={dynamicStyles}
       >
-        {this.initials}
+        <div className={styles.cursorText}>{this.initials}</div>
       </div>
     );
   }
@@ -30,6 +27,7 @@ class Cursor extends Component {
 
 Cursor.propTypes = {
   username: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
   x: PropTypes.number.isRequired,
   y: PropTypes.number.isRequired
 };

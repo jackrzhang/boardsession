@@ -4,13 +4,14 @@ import { ADD_POINT } from './../app/canvas/canvasActions';
 
 import { redrawCanvas } from './../canvasHelpers';
 import generateName from 'sillyname';
+import randomcolor from 'randomcolor';
 
 const configureSocket = (socket, store) => {
   socket.on('connect', () => {
     const room = store.getState().get('board').get('room');
     const userId = socket.id;
     const username = generateName();
-    const color = `hsl(${Math.floor(Math.random() * 360).toString()}, 100%, 67.5%)`;
+    const color = randomcolor({ luminosity: 'dark', format: 'rgb' });
 
     const action = connectUser(room, userId, username, color);
     store.dispatch(action);
