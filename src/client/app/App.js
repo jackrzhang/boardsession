@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styles from './App.css';
 
-import Toolbar from './toolbar/Toolbar.container';
+import Toolbar from './toolbar/Toolbar.view';
 import Canvas from './canvas/Canvas.container';
 import Cursors from './cursors/Cursors.container';
 
