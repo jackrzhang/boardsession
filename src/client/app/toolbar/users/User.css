@@ -1,0 +1,18 @@
+.user {
+  height: 38px;
+  width: 45px;
+  margin: 10px 7px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid rgb(225, 225, 225);
+  border-radius: 3px;
+  text-align: center;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}

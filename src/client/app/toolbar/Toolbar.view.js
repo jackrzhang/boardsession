@@ -5,6 +5,7 @@ import Color from './color/Color.container';
 import Size from './size/Size.container';
 import Mode from './mode/Mode.container';
 import Clear from './clear/Clear.container';
+import Users from './users/Users.container';
 
 class Toolbar extends Component {
   render() {
@@ -17,7 +18,7 @@ class Toolbar extends Component {
           <Clear />
         </span>
         <span className={styles.alignRight}>
-          TEST
+          <Users />
         </span>
       </div>
     );
