@@ -18,3 +18,9 @@ export const changeMode = mode => ({
   type: CHANGE_MODE,
   mode
 });
+
+export const CLEAR_POINTS = 'CLEAR_POINTS';
+
+export const clearPoints = () => ({
+  type: CLEAR_POINTS
+});
