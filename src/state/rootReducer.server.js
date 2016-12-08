@@ -4,6 +4,7 @@ import { CREATE_ROOM } from './../server/http/httpActions';
 import { CONNECT_USER } from './../client/socket/socketActions';
 import { SYNCHRONIZE, DISCONNECT_USER } from './../server/socket/socketActions';
 import { ADD_POINT, UPDATE_USER_LOCATION } from './../client/app/canvas/canvasActions';
+import { CLEAR_POINTS } from './../client/app/toolbar/toolbarActions';
 
 import { combineReducers } from 'redux-immutable';
 import pointsReducer from './pointsReducer';
@@ -28,6 +29,8 @@ const rootReducer = (state = initialState, action) => {
     case SYNCHRONIZE:
       return state.set(action.room, roomReducer(state.get(action.room), action));
     case ADD_POINT:
+      return state.set(action.room, roomReducer(state.get(action.room), action));
+    case CLEAR_POINTS:
       return state.set(action.room, roomReducer(state.get(action.room), action));
     case UPDATE_USER_LOCATION:
       return state.set(action.room, roomReducer(state.get(action.room), action));
