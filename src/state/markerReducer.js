@@ -10,8 +10,12 @@ export const initialMarker = Map({
   color: BLACK
 });
 
+import { CHANGE_COLOR } from './../../src/client/app/toolbar/toolbarActions';
+
 const markerReducer = (state = initialMarker, action) => {
   switch (action.type) {
+    case CHANGE_COLOR:
+      return state.set('color', action.color);
     default:
       return state;
   }
