@@ -10,17 +10,17 @@ class Size extends Component {
           <span
             className={`${styles.dropdownOption} ${styles.firstOption}`}
           >
-            Size 1
+            1
           </span>
           <span
             className={styles.dropdownOption}
           >
-            Size 2
+            2
           </span>
           <span
             className={`${styles.dropdownOption} ${styles.lastOption}`}
           >
-            Size 3
+            5
           </span>
         </div>
       </div>
