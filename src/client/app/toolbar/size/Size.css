@@ -12,6 +12,12 @@
   cursor: default;
 }
 
+.sizeOffset{
+  font-size: 15px;
+  position: relative;
+  top: -2px;
+}
+
 .dropdownButton:hover {
   color: #33C3F0;
 }

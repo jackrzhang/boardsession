@@ -10,12 +10,14 @@ export const initialMarker = Map({
   color: BLACK
 });
 
-import { CHANGE_COLOR } from './../../src/client/app/toolbar/toolbarActions';
+import { CHANGE_COLOR, CHANGE_SIZE } from './../../src/client/app/toolbar/toolbarActions';
 
 const markerReducer = (state = initialMarker, action) => {
   switch (action.type) {
     case CHANGE_COLOR:
       return state.set('color', action.color);
+    case CHANGE_SIZE:
+      return state.set('size', action.size);
     default:
       return state;
   }
