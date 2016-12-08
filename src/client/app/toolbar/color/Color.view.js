@@ -15,7 +15,7 @@ class Color extends Component {
           <span
             className={styles.dropdownOption}
           >
-            Color
+            Color 2
           </span>
           <span
             className={`${styles.dropdownOption} ${styles.lastOption}`}

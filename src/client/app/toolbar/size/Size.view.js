@@ -15,7 +15,7 @@ class Size extends Component {
           <span
             className={styles.dropdownOption}
           >
-            Size
+            Size 2
           </span>
           <span
             className={`${styles.dropdownOption} ${styles.lastOption}`}
