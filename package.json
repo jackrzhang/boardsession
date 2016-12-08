@@ -6,6 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "cs50": "npm run build-server && npm run build-client && npm run prod",
     "prod": "NODE_ENV=production node build/server/server.bundle.js",
     "dev": "NODE_ENV=development nodemon build/server/server.bundle.js",
     "watch-client": "node config/webpack/dev-server.js",
