@@ -11,3 +11,10 @@ export const changeSize = size => ({
   type: CHANGE_SIZE,
   size
 });
+
+export const CHANGE_MODE = 'CHANGE_MODE';
+
+export const changeMode = mode => ({
+  type: CHANGE_MODE,
+  mode
+});
