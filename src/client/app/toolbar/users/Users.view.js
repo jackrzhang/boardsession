@@ -7,7 +7,7 @@ class Users extends Component {
   render() {
     return (
       <div>
-        {this.props.users.valueSeq().toArray().map(user => (
+        {this.props.otherUsers.valueSeq().toArray().map(user => (
           <User
             key={user.get('username')}
             username={user.get('username')}
@@ -20,7 +20,7 @@ class Users extends Component {
 }
 
 Users.propTypes = {
-  users: ImmutablePropTypes.orderedMap.isRequired
+  otherUsers: ImmutablePropTypes.orderedMap.isRequired
 };
 
 export default Users;
