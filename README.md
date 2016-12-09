@@ -1,4 +1,5 @@
 # boardsession
+[![Build Status](https://travis-ci.org/jackrzhang/boardsession.svg?branch=master)](https://travis-ci.org/jackrzhang/boardsession)
 [![dependencies Status](https://david-dm.org/jackrzhang/boardsession/status.svg)](https://david-dm.org/jackrzhang/boardsession)
 [![devDependencies Status](https://david-dm.org/jackrzhang/boardsession/dev-status.svg)](https://david-dm.org/jackrzhang/boardsession?type=dev)
 
