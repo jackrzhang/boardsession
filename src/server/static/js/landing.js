@@ -43,8 +43,8 @@ function makeUsersFeelLikeStuffIsLoading(nextUrl) {
       var button = document.getElementsByClassName('start-drawing')[0];
       button.innerText = 'Redirecting...';
       window.location.href = nextUrl;
-    }, 100)
-  }, 100);
+    }, 150)
+  }, 300);
 }
 
 function startBoardSession(e) {

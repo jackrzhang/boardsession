@@ -1,26 +1,43 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,600);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 body {
   text-align: center;
   background-image: url('/static-assets/images/subtle_dots_@2X.png');
+  margin: 0;
 }
 
-.title {
+h1.title {
   font-size: 60px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  padding: 40px 0 20px 0;
+  margin: 20vh 0 0 0;
+  padding: 0;
+  color: rgb(60, 60, 60);
+}
+
+h2.subtitle {
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 40px 0 20px 0;
-  margin-top: 10%;
-  color: rgb(60, 60, 60);
+  margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 button.start-drawing {
   display: inline-block;
-  font-size: 12px;
+  margin-top: 30px;
+  font-size: 12.5px;
+  letter-spacing: 1.5px;
   color: rgb(245, 245, 245);
   background-color: rgb(60, 60, 60);
   border: 1px solid rgb(140, 140, 140);
-  height: 45px;
+  min-width: 200px;
+  height: 50px;
   cursor: pointer;
 }
 
