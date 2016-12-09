@@ -1,6 +1,6 @@
 #User Manual
 
-Let me walk you through how to get this up and running.
+Lets get this up and running!
 
 ##Requirements
 [Node.js](https://nodejs.org) v6+
