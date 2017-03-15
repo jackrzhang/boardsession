@@ -1,11 +1,11 @@
-#User Manual
+# User Manual
 
 Lets get this up and running!
 
-##Requirements
+## Requirements
 [Node.js](https://nodejs.org) v6+
 
-##Installation
+## Installation
 ```sh
 git clone https://github.com/jackrzhang/boardsession.git
 cd boardsession
@@ -13,14 +13,14 @@ npm install
 ```
 heads up: `npm install`'ll take a while...
 
-##Configuration
+## Configuration
 Create `config/dotenv/production.env` and `config/dotenv/development.env`.
 ```sh
 cp config/dotenv/production.example.env config/dotenv/production.env
 cp config/dotenv/development.example.env config/dotenv/development.env
 ```
 
-##Production Mode
+## Production Mode
 ```sh
 npm run cs50
 ```
@@ -36,7 +36,7 @@ npm run cs50
 NODE_ENV=production node build/server/server.bundle.js
 ```
 
-##Development Mode
+## Development Mode
 Turns on [Hot Module Replacement](https://webpack.github.io/docs/hot-module-replacement.html), 
 through [Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html)
 & [React Hot Loader](https://github.com/gaearon/react-hot-loader), and automatically rebuilds and reruns server-side changes
@@ -51,7 +51,7 @@ Additionally, all server-side socket events and incoming requests will be logged
 In your browser, hit Ctrl+D to toggle [Redux DevTools](https://github.com/gaearon/redux-devtools), which will display
 all actions as they are dispatched, along with corresponding changes to state.
 
-##Linting
+## Linting
 [ESLint](http://eslint.org/), using Airbnb's 
 [configuration](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb).
 ```sh

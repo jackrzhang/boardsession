@@ -7,7 +7,7 @@ A web application for collaborative whiteboarding - kind of like a simple Google
 
 Find documentation for usage [here](documentation.md). Find some explanation of my design decisions [here](design.md).
 
-###For the future
+### For the future
 - Add unit tests, at least for reducers/action creators
 - Revamp the landing page
 - Dockerize & deploy to AWS
@@ -17,8 +17,8 @@ Find documentation for usage [here](documentation.md). Find some explanation of 
 - Google OAuth(?)
 - Some sort of rollback feature - this should be possible by periodically taking snapshots of the board state.
 
-##Requirements
+## Requirements
 [Node.js](https://nodejs.org) v6+
 
-##License
+## License
 [MIT](https://github.com/jackrzhang/boardsession/blob/master/LICENSE)
