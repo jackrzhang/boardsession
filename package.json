@@ -6,8 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "npm run watch-server && npm run watch-client && npm run dev",
-    "cs50": "npm run build-server && npm run build-client && npm run prod",
+    "start": "npm run build-server && npm run build-client && npm run prod",
     "prod": "NODE_ENV=production node build/server/server.bundle.js",
     "dev": "NODE_ENV=development nodemon build/server/server.bundle.js",
     "watch-client": "node config/webpack/dev-server.js",

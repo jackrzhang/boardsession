@@ -22,7 +22,7 @@ cp config/dotenv/development.example.env config/dotenv/development.env
 
 ## Production Mode
 ```sh
-npm run cs50
+npm start
 ```
 :) which does the following:
 

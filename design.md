@@ -28,7 +28,7 @@ be simply passed over the network, and significant portions of logic - in partic
 client and server. Synchronization also becomes really simple: clients just receive the state from the server,
 and UI will update correspondingly. Plus, Redux enables a really nice developer experience.
 
-### Immutable Data
+### Immutable
 By using Redux, the entire application must embrace immutability. Immutable.js allows this to be performant. By utilizing
 structural sharing via tries, Immutable.js enables efficient memoization and change-detection through a simple API. It's kind of like
 React's Virtual DOM, except for persistent data structures. In boardsession, the action of adding a point while drawing demonstrates Immutable's
