@@ -1,6 +1,6 @@
 {
   "name": "boardsession",
-  "description": "description TBD",
+  "description": "Collaborative web whiteboarding",
   "version": "1.0.0",
   "author": "Jack R. Zhang <15jzhang@gmail.com>",
   "private": true,
@@ -71,5 +71,12 @@
     "redux-immutable": "^4.0.0",
     "sillyname": "^0.1.0",
     "socket.io": "^1.7.3"
+  },
+  "engines": {
+    "node": ">=7.0",
+    "npm": ">=4.0"
+  },
+  "now": {
+    "type": "docker"
   }
 }
